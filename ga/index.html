@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Student Profile Dashboard using HTML, CSS, JS, and Firebase" />
+  <title>Student Profile Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Student Profile Dashboard</h1>
+    <div id="hamburger">&#9776;</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="profile">
+      <h2>Manage Student Profiles</h2>
+
+      <div id="controls">
+        <input type="text" id="searchInput" placeholder="Search by name..." />
+        <button id="sortBtn">Sort A-Z</button>
+        <button id="loadDataBtn">Load Data from Firebase</button>
+        <button id="clearAllBtn">Clear All</button>
+      </div>
+
+      <form id="studentForm">
+        <label>Name: <input type="text" id="name" required /></label>
+        <label>Age: <input type="number" id="age" required /></label>
+        <label>Email: <input type="email" id="email" required /></label>
+
+        <label>Course:
+          <select id="course" required>
+            <option value="">Select</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Engineering">Engineering</option>
+          </select>
+        </label>
+
+        <div>
+          Gender:
+          <label><input type="radio" name="gender" value="Male" required /> Male</label>
+          <label><input type="radio" name="gender" value="Female" /> Female</label>
+        </div>
+
+        <div>
+          Skills:
+          <label><input type="checkbox" name="skills" value="HTML" /> HTML</label>
+          <label><input type="checkbox" name="skills" value="CSS" /> CSS</label>
+          <label><input type="checkbox" name="skills" value="JavaScript" /> JavaScript</label>
+        </div>
+
+        <label>Profile Image:
+          <input type="file" id="profileImage" accept="image/*" />
+        </label>
+
+        <button type="submit">Submit</button>
+        <button type="button" id="darkModeToggle">Toggle Dark Mode</button>
+      </form>
+    </section>
+
+    <section id="studentTableSection">
+      <h2>Student Details</h2>
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>Name</th><th>Age</th><th>Email</th><th>Course</th><th>Gender</th><th>Skills</th><th>Profile Image</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Student Dashboard</p>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBZ8wGvQ10jrLpWuzmuEM2j9XdNyqkJr8",
+      authDomain: "evaluationsixapr.firebaseapp.com",
+      databaseURL: "https://evaluationsixapr-default-rtdb.firebaseio.com",
+      projectId: "evaluationsixapr",
+      storageBucket: "evaluationsixapr.firebasestorage.app*",
+      messagingSenderId: "53464797491",
+      measurementId: "G-GHZZ6W71D0",
+      appId: "1: 53464797491 :web : ee111ddf f01f7423f16e46"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
